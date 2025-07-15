@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -8,6 +10,9 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { motion } from "framer-motion";
+
+const MotionButton = motion(Button);
 
 const Header = () => {
   return (
@@ -36,15 +41,22 @@ const Header = () => {
         </NavigationMenuItem>
       </NavigationMenuList>
       <div className='space-x-4'>
-        <Button
+        <MotionButton
+          whileHover={{ y: -2 }}
+          transition={{ duration: 0.05 }}
           asChild
           className='font-bold border border-black bg-white text-black hover:bg-gray-100'
         >
           <Link href='/login'>Login</Link>
-        </Button>
-        <Button asChild className='font-bold'>
+        </MotionButton>
+        <MotionButton
+          whileHover={{ y: -2 }}
+          transition={{ duration: 0.05 }}
+          asChild
+          className='font-bold bg-secondary-foreground'
+        >
           <Link href='/register'>Register</Link>
-        </Button>
+        </MotionButton>
       </div>
     </NavigationMenu>
   );

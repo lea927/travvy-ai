@@ -5,10 +5,11 @@ import Feature from "./Feature";
 const Features = () => {
   return (
     <div className='text-center p-14'>
-      <h2 className='text-3xl font-bold mb-2'>
-        Plan the Perfect Trip in Under 5 Minutes.
+      <h2 className='text-5xl font-bold mb-4'>
+        Plan the <span className='text-primary'>Perfect</span> Trip in Under 5
+        Minutes.
       </h2>
-      <p className='text-muted-foreground mb-10'>
+      <p className='text-muted-foreground mb-14'>
         Let AI handle the details — from destinations to daily plans, all
         tailored just for you.
       </p>

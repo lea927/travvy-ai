@@ -4,8 +4,10 @@ import React from "react";
 import DashboardQuickLinks from "./DashboardQuickLinks";
 import { Button } from "@/components/ui/button";
 import TripList from "../my-trips/TripList";
+import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
+  const router = useRouter();
   return (
     <div className='max-w-5xl mx-auto py-10 px-4'>
       <header className='mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
@@ -15,7 +17,10 @@ const Dashboard = () => {
             Overview of your recent and upcoming itineraries.
           </p>
         </div>
-        <Button className='px-6 py-2 text-lg font-semibold bg-primary text-white rounded-full shadow-md hover:bg-primary/90 transition'>
+        <Button
+          className='px-6 py-2 text-lg font-semibold bg-primary text-white rounded-full shadow-md hover:bg-primary/90 transition'
+          onClick={() => router.push("/itinerary-builder")}
+        >
           + Create New Trip
         </Button>
       </header>

@@ -6,6 +6,7 @@ import DashboardHeader from "./DashboardHeader";
 import { Button } from "@/components/ui/button";
 import TripList from "../my-trips/TripList";
 import { useRouter } from "next/navigation";
+import Link from "next/dist/client/link";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -30,12 +31,12 @@ const Dashboard = () => {
       <section className='mt-10'>
         <div className='flex items-center justify-between mb-4'>
           <h2 className='text-2xl font-bold'>Your Itineraries</h2>
-          <a
+          <Link
             href='/my-trips'
             className='text-primary font-semibold hover:underline transition-colors text-base'
           >
             View All
-          </a>
+          </Link>
         </div>
         <TripList />
       </section>

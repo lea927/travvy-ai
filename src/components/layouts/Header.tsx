@@ -26,17 +26,17 @@ const Header = () => {
       <NavigationMenuList className='flex space-x-8'>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href='/'>Home</Link>
+            <Link href='#hero'>Home</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href='/product'>Product</Link>
+            <Link href='#product'>Product</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href='/pricing'>Pricing</Link>
+            <Link href='#pricing'>Pricing</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

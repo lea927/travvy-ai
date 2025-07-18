@@ -4,7 +4,7 @@ import PricingCard from "./PricingCard";
 
 const Pricing = () => {
   return (
-    <div className='text-center p-14'>
+    <div id='pricing' className='text-center p-14'>
       <h2 className='text-5xl font-bold mb-4'>
         {" "}
         <span className='text-primary'>Simple</span> Pricing for Everyone

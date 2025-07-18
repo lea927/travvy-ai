@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const MotionButton = motion(Button);
 
@@ -22,6 +23,8 @@ const itemVariants = {
 };
 
 const Hero = () => {
+  const router = useRouter();
+
   return (
     <motion.div
       className='text-center'
@@ -55,6 +58,7 @@ const Hero = () => {
           whileHover={{ y: -2 }}
           transition={{ duration: 0.05 }}
           className='mr-4 bg-secondary-foreground'
+          onClick={() => router.push("/dashboard")}
         >
           Get Started
         </MotionButton>

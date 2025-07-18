@@ -4,7 +4,7 @@ import Feature from "./Feature";
 
 const Features = () => {
   return (
-    <div className='text-center p-14'>
+    <div id='product' className='text-center p-14'>
       <h2 className='text-5xl font-bold mb-4'>
         Plan the <span className='text-primary'>Perfect</span> Trip in Under 5
         Minutes.

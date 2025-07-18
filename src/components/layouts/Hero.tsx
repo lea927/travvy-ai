@@ -31,6 +31,7 @@ const Hero = () => {
       variants={containerVariants}
       initial='hidden'
       animate='visible'
+      id='hero'
     >
       <motion.div variants={itemVariants} className='px-14'>
         <h1 className='text-6xl font-bold text-center mt-10 mb-6'>

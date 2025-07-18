@@ -1,13 +1,14 @@
 import React from "react";
 import TripList from "./TripList";
+import DashboardHeader from "../dashboard/DashboardHeader";
 
-const page = () => {
+const Page = () => {
   return (
-    <div>
-      <h1 className='text-4xl font-bold mb-4'>Your Trips</h1>
+    <div className='max-w-inherit mx-auto py-10 px-4'>
+      <DashboardHeader />
       <TripList />
     </div>
   );
 };
 
-export default page;
+export default Page;

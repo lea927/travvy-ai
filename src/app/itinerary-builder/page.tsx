@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import DashboardHeader from "../dashboard/DashboardHeader";
 import { Button } from "@/components/ui/button";
 
 const ItineraryBuilder = () => {
@@ -25,6 +26,7 @@ const ItineraryBuilder = () => {
 
   return (
     <div className='max-w-xl mx-auto py-10 px-4'>
+      <DashboardHeader />
       <h1 className='text-3xl font-bold mb-6 text-center'>Create New Trip</h1>
       <form
         className='bg-muted rounded-xl p-6 shadow-md space-y-6'

@@ -2,7 +2,13 @@
 
 import { Info, Plane } from "lucide-react";
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
@@ -27,24 +33,37 @@ export type Day = {
     };
   };
   reminders: string[];
+  isLastItem: boolean;
 };
 
-const ItineraryItem = ({ day }: { day: Day }) => {
+const ItineraryItem = ({
+  day,
+  isLastItem,
+}: {
+  day: Day;
+  isLastItem: boolean;
+}) => {
   return (
-    <div>
+    <div className='relative pl-8'>
+      {/* Timeline line */}
+      {!isLastItem && (
+        <div className='absolute h-full left-4 top-8 bottom-0 w-0.5 bg-primary opacity-90 z-0' />
+      )}
       {/* Timeline header */}
-      <div className='flex gap-2 items-center'>
+      <div className='absolute left-0 z-10 flex gap-2 items-center'>
         <span className='rounded-full bg-primary shadow p-2'>
           <Plane size={20} className='text-primary-foreground' />
         </span>
-        <h2 className='text-xl font-semibold inline'>{day.title}</h2>
       </div>
       {/* Timeline Content */}
-      <Card className='mt-5 ml-10'>
+      <Card className='mt-5 ml-5'>
         <CardHeader>
-          <CardTitle className='text-muted-foreground'>
-            {day.description}
+          <CardTitle>
+            <h2 className='text-xl font-semibold inline'>{day.title}</h2>
           </CardTitle>
+          <CardDescription className='text-muted-foreground'>
+            {day.description}
+          </CardDescription>
         </CardHeader>
         <CardContent>
           {/* Reminders */}

@@ -12,7 +12,11 @@ const ItineraryList = ({ days }: Days) => {
   return (
     <div className='space-y-6'>
       {days.map((day, index) => (
-        <ItineraryItem key={index} day={day} />
+        <ItineraryItem
+          key={index}
+          day={day}
+          isLastItem={index === days.length - 1}
+        />
       ))}
     </div>
   );

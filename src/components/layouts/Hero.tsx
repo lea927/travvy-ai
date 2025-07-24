@@ -56,9 +56,9 @@ const Hero = () => {
           <Button
             variant='secondary'
             size='icon'
-            className='size-8 cursor-pointer absolute bottom-2 right-2 shadow-none'
+            className='size-8 cursor-pointer absolute bottom-2 right-2 shadow-none bg-primary rounded-full hover:opacity-60 hover:bg-primary transition-opacity duration-200'
           >
-            <ArrowUp />
+            <ArrowUp className='text-white' />
           </Button>
         </div>
       </div>

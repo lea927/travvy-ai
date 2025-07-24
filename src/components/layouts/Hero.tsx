@@ -2,11 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-
-const MotionButton = motion(Button);
+import { Textarea } from "@/components/ui/textarea";
+import { ArrowUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const containerVariants = {
   hidden: {},
@@ -23,8 +22,6 @@ const itemVariants = {
 };
 
 const Hero = () => {
-  const router = useRouter();
-
   return (
     <motion.div
       className='text-center'
@@ -54,16 +51,21 @@ const Hero = () => {
           clicks.
         </span>
       </motion.h2>
-      <motion.div variants={itemVariants} className='flex justify-center mt-8'>
-        <MotionButton
-          whileHover={{ y: -2 }}
-          transition={{ duration: 0.05 }}
-          className='mr-4 bg-secondary-foreground'
-          onClick={() => router.push("/dashboard")}
-        >
-          Get Started
-        </MotionButton>
-      </motion.div>
+      <div className='mt-8 flex justify-center'>
+        <div className='rounded-2xl w-7/12 h-28 bg-[rgb(244,244,244)] relative p-1'>
+          <Textarea
+            className='w-full border-none resize-none shadow-none before:animate-typewriter focus-visible:border-none focus-visible:ring-0 focus-visible:outline-none'
+            placeholder='Create a family-friendly 7-day trip to Tokyo with kids aged 8 and 12'
+          />
+          <Button
+            variant='secondary'
+            size='icon'
+            className='size-8 cursor-pointer absolute bottom-2 right-2 shadow-none'
+          >
+            <ArrowUp />
+          </Button>
+        </div>
+      </div>
       <motion.div variants={itemVariants} className='mt-8 flex justify-center'>
         <motion.div
           whileHover={{ rotate: 3 }}

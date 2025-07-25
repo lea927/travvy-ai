@@ -2,6 +2,7 @@
 
 import React from "react";
 import ItineraryList from "./ItineraryList";
+import ItineraryPhotos from "./ItineraryPhotos";
 
 const ItineraryBuilder = () => {
   const itinerary = {
@@ -154,16 +155,19 @@ const ItineraryBuilder = () => {
 
   return (
     <div className='w-full max-w-4xl mx-auto p-6'>
-      <div className='bg-white shadow-md rounded-lg p-6'>
-        <h1 className='text-3xl font-bold text-center mb-2'>
-          {itinerary.title}
-        </h1>
-        <p className='text-gray-600 text-center mb-4 text-sm'>
-          {itinerary.description}
-        </p>
-        <p className='text-gray-600 text-center text-xs'>
-          {`Duration: ${itinerary.days.length} days | Location: ${itinerary.location}`}
-        </p>
+      <div className='bg-white shadow-md rounded-lg p-6 space-y-10'>
+        <div>
+          <h1 className='text-3xl font-bold text-center mb-2'>
+            {itinerary.title}
+          </h1>
+          <p className='text-gray-600 text-center mb-4 text-sm'>
+            {itinerary.description}
+          </p>
+          <p className='text-gray-600 text-center text-xs'>
+            {`Duration: ${itinerary.days.length} days | Location: ${itinerary.location}`}
+          </p>
+        </div>
+        <ItineraryPhotos />
         <ItineraryList days={itinerary.days} />
       </div>
     </div>

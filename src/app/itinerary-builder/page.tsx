@@ -3,8 +3,21 @@
 import React from "react";
 import ItineraryList from "./ItineraryList";
 import ItineraryPhotos from "./ItineraryPhotos";
+import { useSearchParams } from "next/navigation";
+import type { Day } from "./ItineraryItem";
+
+export type Itinerary = {
+  title: string;
+  description: string;
+  location: string;
+  days: Day[];
+};
 
 const ItineraryBuilder = () => {
+  const searchParams = useSearchParams();
+  const prompt = searchParams.get("prompt");
+  console.log("Prompt from URL:", prompt);
+
   const itinerary = {
     title: "5-Day Taiwan Itinerary: Taipei & Kaohsiung",
     description:

@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const containerVariants = {
   hidden: {},
@@ -22,6 +23,22 @@ const itemVariants = {
 };
 
 const Hero = () => {
+  const router = useRouter();
+
+  const [prompt, setPrompt] = useState("");
+
+  const handlePromptChange = (e) => {
+    setPrompt(e);
+  };
+
+  const handleSubmit = (e) => {
+    if (prompt.trim()) {
+      e.preventDefault();
+      router.push(`/itinerary-builder?prompt=${encodeURIComponent(prompt)}`);
+      setPrompt("");
+    }
+  };
+
   return (
     <motion.div
       className='text-center'
@@ -52,11 +69,15 @@ const Hero = () => {
           <Textarea
             className='w-full border-none resize-none shadow-none before:animate-typewriter focus-visible:border-none focus-visible:ring-0 focus-visible:outline-none'
             placeholder='Create a family-friendly 7-day trip to Tokyo with kids aged 8 and 12'
+            onChange={(e) => handlePromptChange(e.target.value)}
+            value={prompt}
           />
           <Button
             variant='secondary'
             size='icon'
             className='size-8 cursor-pointer absolute bottom-2 right-2 shadow-none bg-primary rounded-full hover:opacity-60 hover:bg-primary transition-opacity duration-200'
+            disabled={!prompt.trim()}
+            onClick={handleSubmit}
           >
             <ArrowUp className='text-white' />
           </Button>

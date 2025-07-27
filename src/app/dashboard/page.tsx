@@ -21,7 +21,7 @@ const Dashboard = () => {
           </p>
         </div>
         <Button
-          className='px-6 py-2 text-lg font-semibold bg-primary text-white rounded-full shadow-md hover:bg-primary/90 transition'
+          className='px-6 py-2 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full shadow-md hover:bg-primary/90 transition'
           onClick={() => router.push("/itinerary-builder")}
         >
           + Create New Trip

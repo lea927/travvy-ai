@@ -1,3 +1,5 @@
-export function GET(_request: Request) {
-  return new Response("Travvy is running!");
+export function GET() {
+  return new Response(JSON.stringify({ data: "Travvy is running!" }), {
+    headers: { "Content-Type": "application/json" },
+  });
 }

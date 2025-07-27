@@ -17,17 +17,17 @@ export type Day = {
   description: string;
   activities: {
     morning: {
-      activity: string;
+      description: string;
       photo_query: string;
       activity_type: string;
     };
     afternoon: {
-      activity: string;
+      description: string;
       photo_query: string;
       activity_type: string;
     };
     evening: {
-      activity: string;
+      description: string;
       photo_query: string;
       activity_type: string;
     };
@@ -97,7 +97,7 @@ const ItineraryItem = ({
                   <div>
                     <h3 className='font-semibold capitalize'>{timeOfDay}</h3>
                     <p className='text-muted-foreground text-sm'>
-                      {activity.activity}
+                      {activity.description}
                     </p>
                   </div>
                 </div>

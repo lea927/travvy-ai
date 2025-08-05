@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Textarea } from "@/components/ui/textarea";
+import { ArrowUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-
-const MotionButton = motion(Button);
 
 const containerVariants = {
   hidden: {},
@@ -25,6 +25,20 @@ const itemVariants = {
 const Hero = () => {
   const router = useRouter();
 
+  const [prompt, setPrompt] = useState("");
+
+  const handlePromptChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setPrompt(e.target.value);
+  };
+
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (prompt.trim()) {
+      e.preventDefault();
+      router.push(`/itinerary-builder?prompt=${encodeURIComponent(prompt)}`);
+      setPrompt("");
+    }
+  };
+
   return (
     <motion.div
       className='text-center'
@@ -34,13 +48,9 @@ const Hero = () => {
       id='hero'
     >
       <motion.div variants={itemVariants} className='px-14'>
-        <h1 className='text-6xl font-bold text-center mt-10 mb-6'>
+        <h1 className='text-7xl font-bold text-center mt-15 mb-6'>
           <span className='block'>
             <span className='text-primary'>AI-powered</span> travel buddy
-          </span>
-          <span className='block'>
-            turning ideas into ready-to-go itineraries,{" "}
-            <span className='text-primary'>instantly.</span>
           </span>
         </h1>
       </motion.div>
@@ -54,17 +64,26 @@ const Hero = () => {
           clicks.
         </span>
       </motion.h2>
-      <motion.div variants={itemVariants} className='flex justify-center mt-8'>
-        <MotionButton
-          whileHover={{ y: -2 }}
-          transition={{ duration: 0.05 }}
-          className='mr-4 bg-secondary-foreground'
-          onClick={() => router.push("/dashboard")}
-        >
-          Get Started
-        </MotionButton>
-      </motion.div>
-      <motion.div variants={itemVariants} className='mt-8 flex justify-center'>
+      <div className='mt-12 flex justify-center'>
+        <div className='rounded-2xl w-7/12 h-28 bg-[rgb(244,244,244)] relative p-1'>
+          <Textarea
+            className='w-full border-none resize-none shadow-none before:animate-typewriter focus-visible:border-none focus-visible:ring-0 focus-visible:outline-none'
+            placeholder='Create a family-friendly 7-day trip to Tokyo with kids aged 8 and 12'
+            onChange={handlePromptChange}
+            value={prompt}
+          />
+          <Button
+            variant='secondary'
+            size='icon'
+            className='size-8 cursor-pointer absolute bottom-2 right-2 shadow-none bg-primary rounded-full hover:opacity-60 hover:bg-primary transition-opacity duration-200'
+            disabled={!prompt.trim()}
+            onClick={handleSubmit}
+          >
+            <ArrowUp className='text-white' />
+          </Button>
+        </div>
+      </div>
+      <motion.div variants={itemVariants} className='mt-20 flex justify-center'>
         <motion.div
           whileHover={{ rotate: 3 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}

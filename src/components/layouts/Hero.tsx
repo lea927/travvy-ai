@@ -27,11 +27,11 @@ const Hero = () => {
 
   const [prompt, setPrompt] = useState("");
 
-  const handlePromptChange = (e) => {
-    setPrompt(e);
+  const handlePromptChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setPrompt(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (prompt.trim()) {
       e.preventDefault();
       router.push(`/itinerary-builder?prompt=${encodeURIComponent(prompt)}`);
@@ -69,7 +69,7 @@ const Hero = () => {
           <Textarea
             className='w-full border-none resize-none shadow-none before:animate-typewriter focus-visible:border-none focus-visible:ring-0 focus-visible:outline-none'
             placeholder='Create a family-friendly 7-day trip to Tokyo with kids aged 8 and 12'
-            onChange={(e) => handlePromptChange(e.target.value)}
+            onChange={handlePromptChange}
             value={prompt}
           />
           <Button
